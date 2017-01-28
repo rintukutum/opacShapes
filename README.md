@@ -6,3 +6,8 @@ This is a `R` package for drawing opac shapes.
 --- | --- | ---
 | rescale shapes | `done`
 | add different shapes | `in progress`
+
+# point
+## rescaled-version
+[[./figures/test.pdf]]
+
