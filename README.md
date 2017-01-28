@@ -9,5 +9,6 @@ This is a `R` package for drawing opac shapes.
 
 # point
 ## rescaled-version
-![figure 1](./figures/test.pdf)
+
+The pdf version ![figure 1](./figures/test.pdf) and the PNG version ![png](./figures/test.png)
 
