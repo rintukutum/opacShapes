@@ -1,3 +1,5 @@
+#' draw points rescaled according to plot
+#' and device size
 source('./R/scale-factors.R')
 point <- function(x,y,r=1,fill='grey80'){
   r <- r/10
