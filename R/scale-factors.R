@@ -1,3 +1,7 @@
+#'-------------------------
+#' This code allow user to plot
+#' shapes that are scaled based on
+#' axis and device width and height
 scaleComb <- function(){
   par_ <- par()
   x_ <- diff(par_$usr[1:2])/(par_$pin[1] * 2.54)
