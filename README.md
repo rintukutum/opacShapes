@@ -9,5 +9,5 @@ This is a `R` package for drawing opac shapes.
 
 # point
 ## rescaled-version
-[[./figures/test.pdf]]
+![figure 1](./figures/test.pdf)
 
