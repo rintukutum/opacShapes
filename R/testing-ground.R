@@ -27,7 +27,7 @@ point(x=8,y=8)
 }
 dev.off()
 #---------------------
-png('./figures/test.png',
+png('./figures/rescaled-version.png',
     width=1200,height=1000,
     res=300)
 plot(1:10,1:10,type='n',xlim=c(0,50))
