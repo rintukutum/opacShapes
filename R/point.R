@@ -1,17 +1,41 @@
 #' draw points rescaled according to plot
 #' and device size
-source('./R/scale-factors.R')
-point <- function(x,y,r=1,fill='grey80'){
-  r <- r/10
+point <- function(
+  x,
+  y,
+  r = 1,
+  fill = 'grey80',
+  xycor = FALSE # draw only
+  scale = TRUE # scaling for device size
+  ){
   rad <- (0:360/180)*pi
-  r_ <- scaleComb()
-  r.x <- r * r_$x_
-  r.y <- r * r_$y_
-  fillArea <- list(x = x + r.x * cos(rad),
-                   y = y + r.y * sin(rad))
+  # scaling area
+  if(scale == TRUE){
+    # scaled according to device 
+    # width and height
+    r_ <- scaleComb(r)
+    fillArea <- list(
+      x = x + r_$x * cos(rad),
+      y = y + r_$y * sin(rad))
+  }else{
+    # no scaling applied
+    fillArea <- list(
+      x = x + r * cos(rad),
+      y = y + r * sin(rad))
+
+  }
+  # draw only
   polypath(x = fillArea$x,
            y = fillArea$y,
            border = NA,
            col = fill
            )
+  #
+  
+  if(xycor == TRUE){
+    # if user need the coordinates 
+    # P.S. Coordinates are scaled according to
+    # device output size
+    return(fillArea)
+  }
 }

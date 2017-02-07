@@ -13,10 +13,10 @@ This is a `R` package for drawing opac shapes.
 
 ## rescaled-version
 
-The pdf version ![figure 1](./figures/test.pdf) and the PNG version is shown below.![png](./figures/rescaled-version.png)
+The pdf version ![figure 1](./vignettes/test.pdf) and the PNG version is shown below.![png](./vignettes/rescaled-version.png)
 
 ```{r}
-png('./figures/rescaled-version.png',
+png('./vignettes/rescaled-version.png',
     width=1200,height=1000,
     res=300)
 plot(1:10,1:10,type='n',xlim=c(0,50))
