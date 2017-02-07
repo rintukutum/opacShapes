@@ -72,4 +72,35 @@ dev.off()
 ```
 
 ## circle
-
+![png](./circle.png)
+```{}
+png('./vignettes/circle.png')
+plot(
+    x = 1:10,
+    y = 1:10,
+    type = 'n',
+    xlim = c(1,30),
+    main = 'cirle'
+    )
+circle(
+    x = 8,
+    y = 8,
+    r = 10,
+    fill = rgb(0.1,0.1,1, alpha=0.5),
+    stroke = rgb(0,0,0, alpha=0.5),
+    stroke.size = 4,
+    stroke.position  = 'out'
+)
+text(8+5,8,'opac')
+circle(
+    x = 5,
+    y = 5,
+    r = 10,
+    fill = rgb(0.1,0.1,1, alpha=0.5),
+    stroke = rgb(0,0,0, alpha=0.5),
+    stroke.size = 4,
+    stroke.position  = 'mid'
+)
+text(5+4,5,'alpha')
+dev.off()
+```
