@@ -50,7 +50,26 @@ dev.off()
 
 ### rescaled version
 
-![png](./rescaledPoint1.png)
+![png](./rescaledPoint.png)
+```{r}
+png('./vignettes/rescaledPoint.png',
+    width = 400,
+    height = 500,
+    res = 100)
+plot(
+    x = 1:10,
+    y = 1:10,
+    type = 'n',
+    xlim = c(1,30),
+    main = 'original version 2'
+    )
+point(
+    x = 8,
+    y = 8,
+    r = 5,
+    scale = TRUE)
+dev.off()
+```
 
 ## circle
 
