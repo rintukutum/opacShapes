@@ -9,7 +9,6 @@ circle <- function(
 	r = 1, # radius
 	stroke.size = 1,
 	stroke.position = 'out' # 'in' = inside, mid = 'middle', out = 'outside'
-
 ){
 	point(
 		x = x,
@@ -37,19 +36,4 @@ circle <- function(
 			))
 	}
 
-}
-
-getXY <- function(
-	x,
-	y,
-	r.x,
-	r.y
-	)
-{
-	rad <- (0:360/180)*pi
-	coord <- list(
-		x = x + r.x * cos(rad),
-		y = y + r.y * sin(rad)
-		)
-	return(coord)
 }

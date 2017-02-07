@@ -55,4 +55,21 @@ drawStroke <- function(
 		border = NA
 	)
 }
-
+#--------
+# get start and end of an arc
+getXY <- function(
+	x,
+	y,
+	r.x,
+	r.y,
+	start.angle,
+	end.angle,
+	)
+{
+	rad <- (start.angle:end.angle/180)*pi
+	coord <- list(
+		x = x + r.x * cos(rad),
+		y = y + r.y * sin(rad)
+		)
+	return(coord)
+}

@@ -104,3 +104,15 @@ circle(
 text(5+4,5,'alpha')
 dev.off()
 ```
+
+# ellipse
+```{r}
+ellipse(
+    x = 5,
+    y = 10,
+    width = 10,
+    height = 20,
+    fill = 'skyblue',
+    stroke = 'grey80'
+)
+```
