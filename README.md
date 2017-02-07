@@ -5,7 +5,10 @@ This is a `R` package for drawing opac shapes.
 | __to do__ | __status__
 --- | --- | ---
 | rescale shapes | `done`
-| add different shapes | `in progress`
+| point | `done`
+| circle | `done`
+| ellipse | `in progress`
+| arc | `in progress`
 
 # Using opacShapes
 Introduction to this package is available in [vignettes](./vignettes/opacShapes.md)
