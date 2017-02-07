@@ -33,5 +33,4 @@ vignettes/*.pdf
 *.knit.md
 
 # user defined files
-testing-ground.R
-vignettes/tes*.pdf
+R/testing-ground.R

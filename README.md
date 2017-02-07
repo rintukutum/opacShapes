@@ -7,10 +7,6 @@ This is a `R` package for drawing opac shapes.
 | rescale shapes | `done`
 | add different shapes | `in progress`
 
-# point
-## original version
+# Using opacShapes
+Introduction to this package is available in [vignettes](./vignettes/opacShapes.md)
 
-
-## rescaled-version
-
-![png](./vignettes/rescaled-version.png)

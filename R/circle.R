@@ -18,17 +18,19 @@ circle <- function(
 		fill = fill,
 		xycor = TRUE
 		)
-	# draw stroke upon point
+	# draw stroke after point
 	pos.implem <- c('in','mid','out')
 	if(any(pos.implem == stroke.position))
 	{
 		if(stroke.position == 'in'){
-
+			# compute xy coord
 		}
 		if(stroke.position == 'mid'){
+			# compute xy coord
 
 		}
 		if(stroke.position == 'out'){
+			# compute xy coord
 
 		}
 	}else{
