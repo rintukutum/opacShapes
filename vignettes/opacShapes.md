@@ -3,7 +3,7 @@ Different shapes with opacity attributes
 ## point
 ### original version
 - Without scaling x-axis and y-axis
-- version 1 ![png]('./rescaledPoint1.png')
+- version 1 ![png](./rescaledPoint1.png)
 ```{r}
 png('./vignettes/rescaledPoint1.png',
     width = 400,
@@ -18,7 +18,7 @@ point(
 dev.off()
 
 ```
-- version 2 ![png]('./rescaledPoint2.png')
+- version 2 ![png](./rescaledPoint2.png)
 ```{r}
 png('./vignettes/rescaledPoint2.png',
     width = 400,
