@@ -49,10 +49,10 @@ dev.off()
 
 
 ### rescaled version
+![png](./scaledP.png)
 
-![png](./rescaledPoint.png)
 ```{r}
-png('./vignettes/rescaledPoint.png',
+png('./vignettes/scaledP.png',
     width = 400,
     height = 500,
     res = 100)
@@ -68,6 +68,7 @@ point(
     y = 8,
     r = 5)
 dev.off()
+
 ```
 
 ## circle
