@@ -80,7 +80,7 @@ plot(
     y = 1:10,
     type = 'n',
     xlim = c(1,30),
-    main = 'cirle'
+    main = 'circle'
     )
 circle(
     x = 8,
