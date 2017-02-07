@@ -5,9 +5,11 @@ point <- function(
   y,
   r = 1,
   fill = 'grey80',
-  xycor = FALSE # draw only
+  xycor = FALSE, # draw only
   scale = TRUE # scaling for device size
   ){
+  #
+  r = r * 0.1
   rad <- (0:360/180)*pi
   # scaling area
   if(scale == TRUE){

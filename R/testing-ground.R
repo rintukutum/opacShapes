@@ -27,10 +27,12 @@ point(x=8,y=8)
 }
 dev.off()
 #---------------------
-png('./figures/rescaled-version.png',
-    width=1200,height=1000,
-    res=300)
+png('./figures/rescaledPoint.png',
+    width=400,height=600,
+    res=100)
 plot(1:10,1:10,type='n',xlim=c(0,50))
-source('./R/point.R')
-point(x=8,y=8)
+point(
+	x = 8,
+	y = 8,
+	r = 10)
 dev.off()
