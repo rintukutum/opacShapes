@@ -2,25 +2,32 @@
 Different shapes with opacity attributes
 ## point
 ### original version
-- Without scaling x-axis and y-axis
-- version 1 ![png](./rescaledPoint1.png)
+- version 1 | 
+![png](./orgPoint1.png)
 ```{r}
-png('./vignettes/rescaledPoint1.png',
+png('./vignettes/orgPoint1.png',
     width = 400,
     height = 500,
     res = 100)
-plot(1:10,1:10,type='n')
+plot(
+    x = 1:10,
+    y = 1:10,
+    type='n',
+    main = 'original version 1'
+)
 point(
     x = 8,
     y = 8,
     r = 5,
-    scale = FALSE)
+    scale = FALSE
+    )
 dev.off()
 
 ```
-- version 2 ![png](./rescaledPoint2.png)
+- version 2 | x-limit changed
+![png](./orgPoint2.png)
 ```{r}
-png('./vignettes/rescaledPoint2.png',
+png('./vignettes/orgPoint2.png',
     width = 400,
     height = 500,
     res = 100)
@@ -28,7 +35,8 @@ plot(
     x = 1:10,
     y = 1:10,
     type = 'n',
-    xlim = c(1,30)
+    xlim = c(1,30),
+    main = 'original version 2'
     )
 point(
     x = 8,
@@ -42,7 +50,7 @@ dev.off()
 
 ### rescaled version
 
-![png](./rescaledPoint.png)
+![png](./rescaledPoint1.png)
 
 ## circle
 
