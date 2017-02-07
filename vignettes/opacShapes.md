@@ -61,13 +61,12 @@ plot(
     y = 1:10,
     type = 'n',
     xlim = c(1,30),
-    main = 'original version 2'
+    main = 'rescaled'
     )
 point(
     x = 8,
     y = 8,
-    r = 5,
-    scale = TRUE)
+    r = 5)
 dev.off()
 ```
 
