@@ -15,7 +15,8 @@ arc <- function(
 	mode = 'OPEN',
 	s.angle = 0,
 	e.angle = 50,
-	type = 'OPEN'
+	type = 'OPEN' # by default type is OPEN
+				  # additional CHORD & PIE
 )
 {
 	fillArea <- drawFillArc(

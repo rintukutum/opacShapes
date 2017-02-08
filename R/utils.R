@@ -75,6 +75,7 @@ drawFillArc <- function(
     }
 
 }
+
 drawStrokeArc <- function(
 	x,
 	y,

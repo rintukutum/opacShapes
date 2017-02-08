@@ -8,7 +8,7 @@ This is a `R` package for drawing opac shapes.
 | point | `done`
 | circle | `done`
 | ellipse | `done`
-| OPEN arc | `in progress`
+| OPEN arc | `done`
 | CHORD arc | `in progress`
 | PIE arc | `in progress`
 | parameter checker | `_yet_to_start`

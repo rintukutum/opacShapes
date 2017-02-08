@@ -149,8 +149,10 @@ Different types of arc is adopted from [Processing](https://processing.org/refer
 
 ## OPEN arc
 ![png](./openArc.png)
+<img src='./openArc.svg'>
 ```{r}
-png('./vignettes/openArc.png')
+#png('./vignettes/openArc.png')
+svg('./vignettes/openArc.svg')
 plot(
     x = 1:10,
     y = 1:10,
@@ -209,9 +211,10 @@ dev.off()
 
 ```
 ## CHORD arc
-
 ```{r}
+
 ```
+
 ## PIE arc
 ```{r}
 ```
