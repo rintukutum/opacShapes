@@ -160,30 +160,51 @@ plot(
     )
 strokes <- c(
     '#ff5555ff',
-    '#916f6fff'
+    '#916f6fff',
+    '#217844ff'
 )
 fills <- c(
     '#ffaaaaff',
-    '#c8b7b7ff'
+    '#c8b7b7ff',
+    'white'
 )
+# lower arc
 arc(
     x = 10,
     y = 5,
+    width = 4,
+    height = 4,
     s.angle = -160,
     e.angle = 0,
     stroke.size = 5,
     fill = fills[1],
     stroke = strokes[1]
 )
+# upper arc
 arc(
     x = 10,
     y = 5,
+    width = 4,
+    height = 4,
     s.angle = 0,
     e.angle = 160,
     stroke.size = 5,
     fill = fills[2],
     stroke = strokes[2]
 )
+# mid arc
+arc(
+    x = 10,
+    y = 5,
+    width = 5,
+    height = 5,
+    s.angle = 160,
+    e.angle = 360-160,
+    stroke.size = 5,
+    fill = fills[3],
+    stroke = strokes[3]
+)
+
 dev.off()
 
 ```

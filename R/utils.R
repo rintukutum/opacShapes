@@ -41,3 +41,70 @@ getXY <- function(
 	return(coord)
 }
 #------
+# arc
+drawFillArc <- function(
+	x,
+	y,
+	w,
+	h,
+	s.angle,
+	e.angle,
+	fill,
+	coord = FALSE
+){
+	w <- scaleComb(w*0.25)$x
+	h <- scaleComb(h*0.25)$y
+	###
+	# fill area
+	fillArea <- getXY(
+		x = x,
+		y = y,
+		r.x = w,
+		r.y = h,
+		start.angle = s.angle,
+		end.angle = e.angle
+	)
+	polypath(
+		x = fillArea$x,
+        y = fillArea$y,
+        border = NA,
+        col = fill
+    )
+    if(coord){
+    	return(fillArea)
+    }
+
+}
+drawStrokeArc <- function(
+	x,
+	y,
+	w,
+	h,
+	stroke,
+	stroke.size,
+	s.angle,
+	e.angle,
+	fillArea
+)
+{
+	r_x_outer <- scaleComb(
+		r = (w*0.25 +  stroke.size * 0.05)
+	)$x
+	r_y_outer <- scaleComb(
+		r = (h*0.25 +  stroke.size * 0.05)
+	)$y
+	strokeArea <- getXY(
+		x = x,
+      	y = y,
+      	r.x = r_x_outer,
+      	r.y = r_y_outer,
+     	start.angle = s.angle,
+		end.angle = e.angle 	
+	)
+	polypath(
+		x = c(fillArea$x, rev(strokeArea$x)),
+		y = c(fillArea$y, rev(strokeArea$y)),
+		border = NA,
+		col = stroke
+	)
+}
