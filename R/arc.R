@@ -40,6 +40,7 @@ arc <- function(
 		stroke.size = stroke.size,
 		s.angle = s.angle,
 		e.angle = e.angle,
-		fillArea = fillArea
+		fillArea = fillArea,
+		type = type
 	)
 }

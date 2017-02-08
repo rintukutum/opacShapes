@@ -85,7 +85,8 @@ drawStrokeArc <- function(
 	stroke.size,
 	s.angle,
 	e.angle,
-	fillArea
+	fillArea,
+	type
 )
 {
 	r_x_outer <- scaleComb(
@@ -102,10 +103,43 @@ drawStrokeArc <- function(
      	start.angle = s.angle,
 		end.angle = e.angle 	
 	)
+	if(type == 'OPEN'){
+		x_poly <- c(
+			fillArea$x,
+			rev(strokeArea$x)
+		)
+		y_poly <- c(
+			fillArea$y,
+			rev(strokeArea$y)
+		)
+	}
+	if(type == 'CHORD'){
+		x_poly <- c(
+			fillArea$x, 
+			fillArea$x[1],
+			strokeArea$x[1],
+			rev(strokeArea$x)
+		)
+		y_poly <- c(
+			fillArea$y,
+			rev(strokeArea$y)
+		)
+	}
+	if(type == 'PIE'){
+		x_poly <- c(
+			fillArea$x,
+			rev(strokeArea$x)
+		)
+		y_poly <- c(
+			fillArea$y,
+			rev(strokeArea$y)
+		)
+	}
 	polypath(
-		x = c(fillArea$x, rev(strokeArea$x)),
-		y = c(fillArea$y, rev(strokeArea$y)),
-		border = NA,
-		col = stroke
-	)
+			x = x_poly,
+			y = y_poly,
+			border = NA,
+			col = stroke
+		)
+	
 }
