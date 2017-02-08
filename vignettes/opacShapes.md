@@ -107,12 +107,38 @@ dev.off()
 
 # ellipse
 ```{r}
+png('./vignettes/ellipse.png')
+plot(
+    x = 1:10,
+    y = 1:10,
+    type = 'n',
+    xlim = c(1,30),
+    main = 'ellipse'
+    )
 ellipse(
-    x = 5,
-    y = 10,
-    width = 10,
-    height = 20,
+    x = 20,
+    y = 8,
+    width = 6,
+    height = 6,
     fill = 'skyblue',
     stroke = 'grey80'
 )
+ellipse(
+    x = 10,
+    y = 8,
+    width = 6,
+    height = 10,
+    fill = 'grey10',
+    stroke = 'grey80'
+)
+
+ellipse(
+    x = 12,
+    y = 4,
+    width = 10,
+    height = 6,
+    fill = 'blue',
+    stroke = 'grey80'
+)
+dev.off()
 ```

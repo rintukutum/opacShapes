@@ -7,7 +7,7 @@ This is a `R` package for drawing opac shapes.
 | rescale shapes | `done`
 | point | `done`
 | circle | `done`
-| ellipse | `in progress`
+| ellipse | `done`
 | arc | `in progress`
 
 # Using opacShapes
