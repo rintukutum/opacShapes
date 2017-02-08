@@ -106,6 +106,7 @@ dev.off()
 ```
 
 # ellipse
+![png](./vignettes/ellipse.png)
 ```{r}
 png('./vignettes/ellipse.png')
 plot(
