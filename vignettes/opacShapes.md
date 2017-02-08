@@ -149,7 +149,8 @@ Different types of arc is adopted from [Processing](https://processing.org/refer
 
 ## OPEN arc
 ![png](./openArc.png)
-<img src='./openArc.svg'>
+![svg](https://github.com/rintukutum/opacShapes/blob/master/vignettes/openArc.svg)
+
 ```{r}
 #png('./vignettes/openArc.png')
 svg('./vignettes/openArc.svg')
