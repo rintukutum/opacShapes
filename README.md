@@ -8,7 +8,9 @@ This is a `R` package for drawing opac shapes.
 | point | `done`
 | circle | `done`
 | ellipse | `done`
-| arc types | `in progress`
+| OPEN arc | `in progress`
+| CHORD arc | `in progress`
+| PIE arc | `in progress`
 | parameter checker | `_yet_to_start`
 # Using opacShapes
 Introduction to this package is available in [vignettes](./vignettes/opacShapes.md)
