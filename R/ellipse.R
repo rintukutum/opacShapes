@@ -12,16 +12,19 @@ ellipse <- function(
 	stroke.size = 1,
 	stroke.position = 'out' # 'in' = inside, mid = 'middle', out = 'outside'
 ){
+	#----
+	# re-scale according to device size
 	r_x <- scaleComb(width*0.1)$x
 	r_y <- scaleComb(height*0.1)$y
 	#----------
-	# fill area
+	# x & y coordinate for fill area
 	fillArea <- getXY(
 		x = x,
       	y = y,
       	r.x = r_x,
       	r.y = r_y
     )
+    # draw
 	polypath(
 		x = fillArea$x,
         y = fillArea$y,
@@ -29,7 +32,7 @@ ellipse <- function(
         col = fill
     )
 	#-----
-	# stroke area
+	# x & y coordinate for stroke area
 	r_x_outer <- scaleComb(
 		r = (width*0.1 +  stroke.size * 0.1)
 	)$x

@@ -37,3 +37,46 @@ circle <- function(
 	}
 
 }
+
+drawStroke <- function(
+	x,
+	y,
+	r,
+	stroke,
+	stroke.size,
+	stroke.position
+){
+	#------
+	r <- r * 0.1
+	stroke.size <- stroke.size * 0.1
+	#-----
+	ang <- 0:360
+  	rad <- ang2rad(ang)
+  	#------
+  	# radius
+  	if(stroke.position == 'out'){
+  		r_inner <- scaleComb(r)
+		r_outer <- scaleComb(r+stroke.size)
+  	}
+	if(stroke.position == 'mid'){
+  		r_inner <- scaleComb(r-(stroke.size/2))
+		r_outer <- scaleComb(r+(stroke.size/2))
+  	}
+	#------
+	# coordinates
+	coor_inner <- list(
+		x = x + r_inner$x * cos(rad),
+		y = y + r_inner$y * sin(rad)
+		)
+	coor_outer <- list(
+		x = x + r_outer$x * cos(rad),
+		y = y + r_outer$y * sin(rad)
+		)
+	#----
+	polypath(
+		x = c(coor_inner$x, rev(coor_outer$x)),
+		y = c(coor_inner$y, rev(coor_outer$y)),
+		col = stroke,
+		border = NA
+	)
+}

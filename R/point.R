@@ -22,11 +22,12 @@ point <- function(
     )
   }else{
     # no scaling applied
-    fillArea <- list(
-      x = x + r * cos(rad),
-      y = y + r * sin(rad))
-
-  }
+    fillArea <- getXY(
+      x = x,
+      y = y,
+      r.x = r,
+      r.y = r
+    )
   # draw only
   polypath(x = fillArea$x,
            y = fillArea$y,

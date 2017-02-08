@@ -145,3 +145,52 @@ dev.off()
 ```
 
 # arc
+Different types of arc is adopted from [Processing](https://processing.org/reference/arc_.html)
+
+## OPEN arc
+![png](./openArc.png)
+```{r}
+png('./vignettes/openArc.png')
+plot(
+    x = 1:10,
+    y = 1:10,
+    type = 'n',
+    xlim = c(1,30),
+    main = 'OPEN arc'
+    )
+strokes <- c(
+    '#ff5555ff',
+    '#916f6fff'
+)
+fills <- c(
+    '#ffaaaaff',
+    '#c8b7b7ff'
+)
+arc(
+    x = 10,
+    y = 5,
+    s.angle = -160,
+    e.angle = 0,
+    stroke.size = 5,
+    fill = fills[1],
+    stroke = strokes[1]
+)
+arc(
+    x = 10,
+    y = 5,
+    s.angle = 0,
+    e.angle = 160,
+    stroke.size = 5,
+    fill = fills[2],
+    stroke = strokes[2]
+)
+dev.off()
+
+```
+## CHORD arc
+
+```{r}
+```
+## PIE arc
+```{r}
+```
