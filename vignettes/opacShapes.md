@@ -211,7 +211,35 @@ dev.off()
 ```
 ## CHORD arc
 ```{r}
-
+![svg version](./chordArc.svg)
+![svg mod version](./chordArcTest.svg)
+svg('./vignettes/chordArc.svg')
+plot(
+    x = 1:10,
+    y = 1:10,
+    type = 'n',
+    xlim = c(1,30),
+    main = 'CHORD arc'
+    )
+strokes <- c(
+    '#ff5555ff',
+    '#916f6fff',
+    '#217844ff'
+)
+fills <- c(
+    '#ffaaaaff',
+    '#c8b7b7ff',
+    'white'
+)
+arc(
+    x = 10,
+    y = 5,
+    width = 10,
+    height = 10,
+    type = 'CHORD',
+    stroke.size = 5
+)
+dev.off()
 ```
 
 ## PIE arc
