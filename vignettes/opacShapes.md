@@ -210,9 +210,9 @@ dev.off()
 
 ```
 ## CHORD arc
+![chord arc](./chordArc.svg)
+![chorc arc test](./chordArcTest.svg)
 ```{r}
-![svg version](./chordArc.svg)
-![svg mod version](./chordArcTest.svg)
 svg('./vignettes/chordArc.svg')
 plot(
     x = 1:10,
