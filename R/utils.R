@@ -121,61 +121,37 @@ drawStrokeArc <- function(
 		)
 	}
 	if(type == 'CHORD'){
-		#-----
-		# P1 coordinates
-		P1 <- c(
-			rev(fillArea$x)[1],
-			rev(fillArea$y)[1]
-			)
-		#-----
-		# P2 coordinates
-		P2 <- c(
-			fillArea$x[1],
-			fillArea$y[1]
-			)
+	add.coord <- findCoordArcChord(
+		s.angle = s.angle,
+		e.angle = e.angle,
+		stroke.size = stroke.size,
+		fillArea = fillArea
+	)
+	x_poly = c(
+		fillArea$x,
+		rev(add.coord$P2.coord$x),
+		rev(strokeArea$x),
+		add.coord$P1.coord$x,
+		rev(add.coord$P2.coord$x)[1],
+		rev(fillArea$x)[1],
+		fillArea$x[1]
+	)
+	y_poly = c(
+		fillArea$y,
+		rev(add.coord$P2.coord$y),
+		rev(strokeArea$y),
+		add.coord$P1.coord$y,
+		rev(add.coord$P2.coord$y)[1],
+		rev(fillArea$y)[1],
+		fillArea$y[1]
+	)
+	polypath(
+			x = x_poly,
+			y = y_poly,
+			border = NA,
+			col = stroke
+		)
 
-		#-----
-		# find P3 coordinates
-		P3 <- findP3(
-			P1,
-			P2,
-			stroke.size * 0.05)
-		#-----
-		# draw for QC
-		drawTriangle(
- 			P1,
- 			P2,
- 			P3
-		)
-		# find P4 coordinates
-		P4 <- findP3(
-			P2,
-			P1,
-			stroke.size * 0.05)
-		drawTriangle(
- 			P1,
- 			P2,
- 			P4,
- 			fill = '#2ca05a8c'
-		)
-		x_poly <- c(
-			fillArea$x, 
-			# need opimization
-			fillArea$x[1],
-			# need opimization
-			strokeArea$x[1],
-
-			rev(strokeArea$x)
-		)
-		y_poly <- c(
-			fillArea$y,
-			# need opimization
-			fillArea$y[1],
-			# need opimization
-			strokeArea$y[1],
-
-			rev(strokeArea$y)
-		)
 	}
 	if(type == 'PIE'){
 		x_poly <- c(
@@ -194,135 +170,67 @@ drawStrokeArc <- function(
 			col = stroke
 		)
 }
-#-------------
-# simple maths 
-#-------------
-# http://math.stackexchange.com/questions/64823/how-to-find-the-third-coordinate-of-a-right-triangle-given-2-coordinates-and-len
-# answer by, Ross Millikan
-# http://math.stackexchange.com/questions/927802/how-to-find-coordinates-of-3rd-vertex-of-a-right-angled-triangle-when-everything
-# answer by MvG
-# http://math.stackexchange.com/questions/187107/calculate-coordinates-of-3rd-point-vertex-of-a-scalene-triangle-if-angles-and
-#-------------
-#   P2
-#   |\
-#   | \
-#  A|  \ C
-#   |   \
-#   |____\
-# P1   B  P3
-#------------
-# Pn = c(Xn, Yn)
-# slope of A, mA = (y2 - y1)/(x2 -x1)
-# A _|_ B, mA * mB = -1
-# slope B, mB = -1/mA = -(x2-x1)/(y2-y1)
-# p3 coordinate
-# x3 = (mA(y1 - y2)/mB) + x1
-# y3 = (mA(x2 - x1)/mB) + y1 
+findAngArcChord <- function(
+	s.angle,
+	e.angle
+){
+	# find diff angle
+	diff.ang <- e.angle - s.angle
+	if(diff.ang > 180){
+		theta <- (360-diff.ang)
+		ang.rotate <- 180 - (90 + (180-theta)/2)
+		e.point <- c(
+			s.ang = e.angle,
+			e.ang = e.angle + ang.rotate
+		)
+		s.point <- c(
+			s.ang = s.angle,
+			e.ang = s.angle - ang.rotate
+		)
+	}
+	return(list(
+		start.point = s.point,
+		end.point = e.point
+		))
+}
 
-findP3 <-  function(
-	P1,
-	P2,
-	distP1P3
-	){
-	m.P1P2 = (P2[2] - P1[2])/(P2[1] - P1[1])
-	m.P1P3 = -1/m.P1P2
-	
-	distScaled <- scaleComb(distP1P3)
-	#x.P3 = (m.P1P2 * (P1[2] - P2[2])/m.P1P3) + P1[1]
-	#y.P3 = (m.P1P2 * (P2[1] - P1[1])/m.P1P3) + P1[2]
-	x.P3 = P1[1] + distScaled$x_ * (1/sqrt(1 + m.P1P3^2))
-	y.P3 = P1[2] + distScaled$y_ * (m.P1P3/sqrt(abs(1 + m.P1P3^2)))
-
+findCoordArcChord <- function(
+	s.angle,
+	e.angle,
+	stroke.size,
+	fillArea
+){
+	e.point.coord <- c(
+		rev(fillArea$x)[1],
+		rev(fillArea$y)[1]
+	)
+	rScaled <- scaleComb(stroke.size * 0.05)
+	angS <- findAngArcChord(
+		s.angle=s.angle,
+		e.angle=e.angle
+	)
+	s.point <- angS$start.point
+	P1.coord <- getXY(
+		x = fillArea$x[1],
+		y = fillArea$y[1],
+		r.x = rScaled$x_,
+		r.y = rScaled$y_,
+		start.angle = s.point['s.ang'],
+		end.angle = s.point['e.ang']
+	)
+	e.point <- angS$end.point
+	P2.coord <- getXY(
+		x = rev(fillArea$x)[1],
+		y = rev(fillArea$y)[1],
+		r.x = rScaled$x_,
+		r.y = rScaled$y_,
+		start.angle = e.point['s.ang'],
+		end.angle = e.point['e.ang']
+	)
 	return(
-		c(
-			x = x.P3,
-			y = y.P3
+		list(
+			P1.coord = P1.coord,
+			P2.coord = P2.coord
 		)
 	)
 }
-
-findAngInPoint <- function(
-	e.angle,
-	P1 = TRUE
-)
-{
-	angleLeft <- 360 - e.angle
-	angle2rm <- angleLeft/2
-	angleInP3 <- 180 - (90 + angle2rm)
-	if(P1 == TRUE){
-		s.angP3 <- 360 - (angleInP3*2)
-		e.angP3 <- s.angP3 + angleInP3
-	}else{
-		s.angP3 <- 360 - angleInP3
-		e.angP3 <- 360
-	}
-	return(c(s.angP3, e.angP3))
-}
-
-drawSmallFill <- function(
-	x,
-	y,
-	r,
-	s.angle,
-	e.angle,
-	fill
-)
-{
-	r.scaled <- scaleComb(r*0.05)
-	fillArea <- getXY(
-		x = x,
-		y = y,
-		r.x = r.scaled$x_,
-		r.y = r.scaled$y_,
-		start.angle = s.angle,
-		end.angle = e.angle
-	)
-	polypath(
-		x = c(x, fillArea$x),
-        y = c(y, fillArea$y),
-        border = NA,
-        col = fill
-    )
-}
-#---------------------
-drawTriangle <- function(
-	P1,
-	P2,
-	P3,
-	label = 'P3',
-	fill = '#ff00008d')
-{	
-
-	polygon(
-		x = c(P1[1],P2[1],P3[1],P1[1]),
-		y = c(P1[2], P2[2], P3[2],P1[2]),
-		col = fill,
-		border = NA
-	)
-	text(P1[1],P1[2],'P1')
-	text(P2[1],P2[2],'P2')
-	text(P3[1],P3[2],label)
-
-}
-
-
-#P1 = c(-4,1)
-#P2 = c(-4,-10)
-#P3 = findP3(
-#		P1 = P1,
-#		P2 = P2, 
-#		B = 2
-#	)
-
-#plot(-20:20,-20:20,type='n')
-#drawTriangle(P1, P2, P3)
-#
-#P1 = c(1,-9)
-#P2 = c(11,-2)
-#P3 = findP3(
-#		P1 = P1,
-#		P2 = P2, 
-#		B = 4
-#	)
-#drawTriangle(P1, P2, P3)
-#---------------------
