@@ -211,9 +211,12 @@ dev.off()
 ```
 ## CHORD arc
 ![chord arc](./chordArc.svg)
-![chorc arc test](./chordArcTest.svg)
+
+![chord arc test](./chordArcTest.svg)
+
+![chord arc fixed](./chordArc_fixed.svg)
 ```{r}
-svg('./vignettes/chordArc.svg')
+svg('./vignettes/chordArc_fixed.svg')
 plot(
     x = 1:10,
     y = 1:10,
