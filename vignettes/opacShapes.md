@@ -218,27 +218,35 @@ plot(
     x = 1:10,
     y = 1:10,
     type = 'n',
-    xlim = c(1,30),
+    xlim = c(-10,60),
+    ylim = c(-10,30),
     main = 'CHORD arc'
     )
 strokes <- c(
-    '#ff5555ff',
-    '#916f6fff',
-    '#217844ff'
+    '#ff55558b',
+    '#916f6f8b',
+    '#2178448b'
 )
 fills <- c(
-    '#ffaaaaff',
-    '#c8b7b7ff',
-    'white'
+    '#ffaaaa8b',
+    '#c8b7b78f',
+    '#ffffff8b'
 )
-arc(
-    x = 10,
-    y = 5,
-    width = 10,
-    height = 10,
-    type = 'CHORD',
-    stroke.size = 5
-)
+for(i in 1:10){
+    r <- sample(1:10,1)
+    arc(
+        x = sample(1:30,1),
+        y = sample(1:10,1),
+        width = r,
+        height = r,
+        type = 'CHORD',
+        stroke.size = sample(1:10,1),
+        fill = sample(fills,1),
+        stroke = sample(strokes,1),
+        s.angle = 0,
+        e.angle = sample(181:320,1)
+    )    
+}
 dev.off()
 ```
 

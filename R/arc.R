@@ -12,7 +12,6 @@ arc <- function(
 	fill = 'grey80',
 	stroke = 'grey10',
 	stroke.size = 1,
-	mode = 'OPEN',
 	s.angle = 0,
 	e.angle = 270,
 	type = 'OPEN' # by default type is OPEN
