@@ -109,9 +109,9 @@ drawTriangle <- function(
 		col = fill,
 		border = NA
 	)
-	text(P1[1],P1[2],'P1')
-	text(P2[1],P2[2],'P2')
-	text(P3[1],P3[2],label)
+	#text(P1[1],P1[2],'P1')
+	#text(P2[1],P2[2],'P2')
+	#text(P3[1],P3[2],label)
 
 }
 

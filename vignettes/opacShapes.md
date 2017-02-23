@@ -235,20 +235,20 @@ fills <- c(
     '#c8b7b78f',
     '#ffffff8b'
 )
-for(i in 1:10){
+for(i in 1:5){
     r <- sample(1:10,1)
     arc(
         x = sample(1:30,1),
-        y = sample(1:10,1),
+        y = i+5,
         width = r,
         height = r,
         type = 'CHORD',
-        stroke.size = sample(1:10,1),
+        stroke.size = 5,
         fill = sample(fills,1),
         stroke = sample(strokes,1),
         s.angle = 0,
-        e.angle = sample(181:320,1)
-    )    
+        e.angle = 85
+    )
 }
 dev.off()
 ```

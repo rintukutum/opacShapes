@@ -18,6 +18,11 @@ arc <- function(
 				  # additional CHORD & PIE
 )
 {
+	if( type == 'PIE'){
+		PIE <- TRUE
+	}else{
+		PIE <- FALSE
+	}
 	fillArea <- drawFillArc(
 		x = x,
 		y = y,
@@ -26,7 +31,8 @@ arc <- function(
 		fill = fill,
 		s.angle = s.angle,
 		e.angle = e.angle,
-		coord = TRUE
+		coord = TRUE,
+		PIE = PIE
 	)
     ###
 	# stroke area
